@@ -15,7 +15,7 @@ from tensorflow.keras.layers import Dense
 
 class CriticNetwork(keras.Model):
     def __init__(self, fc1_dims=512, fc2_dims=512,
-            name='critic', chkpt_dir='tmp/ddpg'):
+            name='critic', chkpt_dir='./'):
         super(CriticNetwork, self).__init__()
         self.fc1_dims = fc1_dims
         self.fc2_dims = fc2_dims
@@ -39,7 +39,7 @@ class CriticNetwork(keras.Model):
 
 class ActorNetwork(keras.Model):
     def __init__(self, fc1_dims=512, fc2_dims=512, n_actions=2, name='actor',
-            chkpt_dir='tmp/ddpg'):
+            chkpt_dir='./'):
         super(ActorNetwork, self).__init__()
         self.fc1_dims = fc1_dims
         self.fc2_dims = fc2_dims

@@ -42,7 +42,7 @@ class SebEnv(gym.Env):
                forward_reward_cap=float("inf"),
                reflection=True,
                log_path=None):
-    physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
+    physicsClient = p.connect(p.DIRECT)#or p.DIRECT for non-graphical version
     p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
     p.setGravity(0,0,-10)
     p.resetDebugVisualizerCamera(cameraDistance = 1.5, cameraYaw=0, cameraPitch=0, cameraTargetPosition=[0,0,0])
@@ -61,25 +61,28 @@ class SebEnv(gym.Env):
     cubePos, cubeOrn = p.getBasePositionAndOrientation(self.boxId)
     
     self.action_space = spaces.Box(np.array([-1.5708]*12), np.array([+1.5708]*12), dtype = np.float32)
-    self.observation_space = spaces.Box(np.array([-100000]), np.array([+100000]))
+    self.observation_space = spaces.Box(np.array([-100000]*3), np.array([+100000]*3))
     
   def step(self, action):
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
-    pos = action
+    pos = action.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     time.sleep(1./25.)
     nep, no = p.getBasePositionAndOrientation(self.boxId)
     observation = nep
-    reward = 0
-    if nep > op:
-        reward = 1
-    return observation, reward
+    reward = nep[0] - np.abs(op[1])
+    
+    info = {}
+    return observation, reward, info
+
   def reset(self):
     p.resetBasePositionAndOrientation(self.boxId, self.cubeStartPos, self.cubeStartOrientation)
     p.resetBaseVelocity(self.boxId, [0, 0, 0], [0, 0, 0])
+    position, ori = p.getBasePositionAndOrientation(self.boxId)
+    return position
     
   def render(self, mode='human'):
     ...

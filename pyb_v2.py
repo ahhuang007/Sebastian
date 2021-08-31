@@ -13,7 +13,7 @@ import pandas as pd
 import csv
 
 
-physicsClient = p.connect(p.DIRECT)#or p.DIRECT for non-graphical version
+physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
 
 p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
 
@@ -22,7 +22,7 @@ p.resetDebugVisualizerCamera(cameraDistance = 1.5, cameraYaw=0, cameraPitch=0, c
 planeId = p.loadURDF("plane.urdf")
 sphere = p.createCollisionShape(p.GEOM_SPHERE, radius=0.1)
 sphere2 = p.createCollisionShape(p.GEOM_SPHERE, radius = 0.09)
-cubeStartPos = [0,0,1]
+cubeStartPos = [0,0,0.09]
 
 cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
 
@@ -47,7 +47,7 @@ posind = []
 allpos = []
 allind = np.linspace(0, 9999, num = 10000)
 highest = 0
-for j in range(10000):
+for j in range(10):
     print(j)
     num = np.random.randint(0, 23)
     temp = coefs[num]
@@ -87,8 +87,8 @@ p.disconnect()
 
 vals = pd.DataFrame(data={"iter": posind, "pos": positions})
 allvals = pd.DataFrame(data={"iter": allind, "pos": allpos})
-vals.to_csv('C://Users//MSI//Documents//hc.csv')
-allvals.to_csv('C://Users//MSI//Documents//ahc.csv')
+vals.to_csv('C://Users//ahhua//Documents//hc.csv')
+allvals.to_csv('C://Users//ahhua//Documents//ahc.csv')
 #%%
 physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
 p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
