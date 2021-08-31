@@ -4,7 +4,7 @@
 	<link name="base_plate_bottom">
 		<visual>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//base_plate_fine.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//base_plate_fine.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<material name = "acrylic">
 				<color rgba = "1 1 1 0.5"/>	
@@ -13,7 +13,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//base_plate_coarse.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//base_plate_coarse.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -26,7 +26,7 @@
 	<link name="front_left_p1">
 		<visual>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p1_fine.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p1_fine.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<material name = "red">
 				<color rgba = "1 0 0 1"/>
@@ -35,7 +35,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p1_coarse.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<origin rpy="0 0 1.233" xyz="0 0 0"/>
 		</collision>
@@ -56,7 +56,7 @@
 		<visual>
 			<origin rpy="0 0 -1.233" xyz="0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p1_fine.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p1_fine.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<material name = "red">
 				<color rgba = "1 0 0 1"/>
@@ -64,7 +64,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p1_coarse.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<origin rpy="0 0 -1.233" xyz="0 0 0"/>
 		</collision>
@@ -84,7 +84,7 @@
 		<visual>
 			<origin rpy="0 0 2.042" xyz="0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p1_fine.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p1_fine.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<material name = "red">
 				<color rgba = "1 0 0 1"/>
@@ -92,7 +92,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p1_coarse.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<origin rpy="0 0 2.042" xyz="0 0 0"/>
 		</collision>
@@ -112,7 +112,7 @@
 		<visual>
 			<origin rpy="0 0 -2.042" xyz="0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p1_fine.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p1_fine.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<material name = "red">
 				<color rgba = "1 0 0 1"/>
@@ -120,7 +120,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p1_coarse.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<origin rpy="0 0 -2.042" xyz="0 0 0"/>
 		</collision>
@@ -140,7 +140,7 @@
 		<visual>
 			<origin rpy="0.0 0 0" xyz="0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//top_plate_fine.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//top_plate_fine.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<material name = "acrylic">
 				<color rgba = "1 1 1 0.5"/>	
@@ -148,7 +148,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//top_plate_coarse.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//top_plate_coarse.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -168,7 +168,7 @@
 		<visual>
 			<origin rpy="0.0 0 1.5708" xyz="0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//battery_fine.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//battery_fine.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 			<material name = "black">
 				<color rgba = "0 0 0 1"/>	
@@ -176,7 +176,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//battery_coarse.stl" scale = "0.001 0.001 0.001"/>
+				<mesh filename = "//cad_files//simulation//stls//battery_coarse.STL" scale = "0.001 0.001 0.001"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -195,7 +195,7 @@
 		<visual>
 			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p2_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "blue">
 				<color rgba = "0 0 1 1"/>
@@ -203,7 +203,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p2_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
 		</collision>
@@ -225,7 +225,7 @@
 		<visual>
 			<origin rpy = "0 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p2_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "blue">
 				<color rgba = "0 0 1 1"/>
@@ -233,7 +233,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p2_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "0 0 0" xyz = "0 0 0"/>
 		</collision>
@@ -255,7 +255,7 @@
 		<visual>
 			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p2_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "blue">
 				<color rgba = "0 0 1 1"/>
@@ -263,7 +263,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p2_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
 		</collision>
@@ -285,7 +285,7 @@
 		<visual>
 			<origin rpy = "0 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p2_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "blue">
 				<color rgba = "0 0 1 1"/>
@@ -293,7 +293,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p2_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "0 0 0" xyz = "0 0 0"/>
 		</collision>
@@ -315,7 +315,7 @@
 		<visual>
 			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p3_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "green">
 				<color rgba = "0 1 0 1"/>
@@ -323,7 +323,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p3_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
 		</collision>
@@ -346,7 +346,7 @@
 		<visual>
 			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p3_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "green">
 				<color rgba = "0 1 0 1"/>
@@ -354,7 +354,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p3_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
 		</collision>
@@ -377,7 +377,7 @@
 		<visual>
 			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p3_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "green">
 				<color rgba = "0 1 0 1"/>
@@ -385,7 +385,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p3_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 -1.5708 3.1415" xyz = "0 0 0"/>
 		</collision>
@@ -407,7 +407,7 @@
 		<visual>
 			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p3_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "green">
 				<color rgba = "0 1 0 1"/>
@@ -415,7 +415,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p3_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
 		</collision>
@@ -437,7 +437,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p4_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "cyan">
 				<color rgba = "0 1 1 1"/>
@@ -445,7 +445,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_left_p4_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
 		</collision>
@@ -468,7 +468,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p4_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "cyan">
 				<color rgba = "0 1 1 1"/>
@@ -476,7 +476,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//front_right_p4_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 		</collision>
@@ -499,7 +499,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p4_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "cyan">
 				<color rgba = "0 1 1 1"/>
@@ -507,7 +507,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_left_p4_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
 		</collision>
@@ -530,7 +530,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p4_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "cyan">
 				<color rgba = "0 1 1 1"/>
@@ -538,7 +538,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//back_right_p4_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 		</collision>
@@ -561,7 +561,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//pi_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//pi_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "cyan">
 				<color rgba = "0 1 1 1"/>
@@ -569,7 +569,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//pi_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//pi_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 		</collision>
@@ -585,7 +585,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//bus_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//bus_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "cyan">
 				<color rgba = "0 1 1 1"/>
@@ -593,7 +593,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//bus_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//bus_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 		</collision>
@@ -609,7 +609,7 @@
 		<visual>
 			<origin rpy = "0 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//conv_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//conv_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "cyan">
 				<color rgba = "0 1 1 1"/>
@@ -617,7 +617,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//conv_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//conv_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 		</collision>
 	</link>
@@ -632,7 +632,7 @@
 		<visual>
 			<origin rpy = "-1.5708 0 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//left_claw_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//left_claw_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "yellow">
 				<color rgba = "1 1 0 1"/>
@@ -640,7 +640,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//left_claw_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//left_claw_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "-1.5708 0 3.1415" xyz = "0 0 0"/>
 		</collision>
@@ -659,7 +659,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//right_claw_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//right_claw_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "yellow">
 				<color rgba = "1 1 0 1"/>
@@ -667,7 +667,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//right_claw_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//right_claw_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
 		</collision>
@@ -685,7 +685,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 -2.3562" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//right_leg_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//right_leg_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "yellow">
 				<color rgba = "1 1 0 1"/>
@@ -693,7 +693,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//right_leg_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//right_leg_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 -2.3562" xyz = "0 0 0"/>
 		</collision>
@@ -711,7 +711,7 @@
 		<visual>
 			<origin rpy = "1.5708 0 2.3562" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//left_leg_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//left_leg_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "yellow">
 				<color rgba = "1 1 0 1"/>
@@ -719,7 +719,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//left_leg_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//left_leg_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "1.5708 0 2.3562" xyz = "0 0 0"/>
 		</collision>
@@ -737,7 +737,7 @@
 		<visual>
 			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//face_fine.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//face_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<material name = "yellow">
 				<color rgba = "1 1 0 1"/>
@@ -745,7 +745,7 @@
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//face_coarse.stl" scale = ".001 .001 .001"/>
+				<mesh filename = "//cad_files//simulation//stls//face_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
 			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
 		</collision>
