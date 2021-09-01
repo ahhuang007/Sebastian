@@ -70,7 +70,7 @@ class SebEnv(gym.Env):
     pos = action.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
-    time.sleep(1./25.)
+    #time.sleep(1./25.)
     nep, no = p.getBasePositionAndOrientation(self.boxId)
     observation = nep
     reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
