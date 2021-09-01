@@ -73,7 +73,7 @@ class SebEnv(gym.Env):
     time.sleep(1./25.)
     nep, no = p.getBasePositionAndOrientation(self.boxId)
     observation = nep
-    reward = nep[0] - np.abs(op[1])
+    reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
     
     info = {}
     return observation, reward, info
