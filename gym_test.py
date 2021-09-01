@@ -27,7 +27,7 @@ agent = Agent(input_dims=env.observation_space.shape, env=env,
 best_reward = 0
 scores = []
 load_checkpoint = False
-epochs = 2
+epochs = 250
 
 if load_checkpoint:
     n_steps = 0
@@ -46,7 +46,7 @@ else:
 for i in range(epochs):
     observation = env.reset()
     score = 0
-    iterations = 100
+    iterations = 2000
     for j in range(iterations):
         action = agent.choose_action(observation, evaluate)
         observation_, reward, info = env.step(action)
@@ -57,8 +57,8 @@ for i in range(epochs):
         observation = observation_
 
     scores.append(score)
-    #avg_score = np.mean(scores[-100:])
-    avg_score = np.mean(scores[0:])
+    avg_score = np.mean(scores[-100:])
+    #avg_score = np.mean(scores[0:])
 
     if avg_score > best_reward:
         best_reward = avg_score
