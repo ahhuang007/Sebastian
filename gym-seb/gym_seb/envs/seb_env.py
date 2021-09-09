@@ -76,7 +76,8 @@ class SebEnv(gym.Env):
     reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
     
     info = {}
-    return observation, reward, info
+    done = False
+    return observation, reward, done, info
 
   def reset(self):
     p.resetBasePositionAndOrientation(self.boxId, self.cubeStartPos, self.cubeStartOrientation)
