@@ -67,23 +67,25 @@ class SebEnv(gym.Env):
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
-    pos = action.numpy()
+    pos = action#.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     #time.sleep(1./25.)
     nep, no = p.getBasePositionAndOrientation(self.boxId)
     observation = nep
     reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
-    
+    print(nep)
     info = {}
     done = False
-    return observation, reward, done, info
+    if nep[0] > 1:
+      done = True
+    return np.array(observation), reward, done, info
 
   def reset(self):
     p.resetBasePositionAndOrientation(self.boxId, self.cubeStartPos, self.cubeStartOrientation)
     p.resetBaseVelocity(self.boxId, [0, 0, 0], [0, 0, 0])
     position, ori = p.getBasePositionAndOrientation(self.boxId)
-    return position
+    return np.array(position)
     
   def render(self, mode='human'):
     ...
