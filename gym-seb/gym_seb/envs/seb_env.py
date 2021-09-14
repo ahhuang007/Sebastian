@@ -18,6 +18,7 @@ class SebEnv(gym.Env):
   metadata = {'render.modes': ['human']}
 
   def __init__(self,
+               max_timesteps,
                urdf_root=pybullet_data.getDataPath(),
                distance_limit=float("inf"),
                self_collision_enabled=True,
@@ -42,6 +43,7 @@ class SebEnv(gym.Env):
                forward_reward_cap=float("inf"),
                reflection=True,
                log_path=None):
+    super(SebEnv, self).__init__()
     physicsClient = p.connect(p.DIRECT)#or p.DIRECT for non-graphical version
     p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
     p.setGravity(0,0,-10)
@@ -62,8 +64,11 @@ class SebEnv(gym.Env):
     
     self.action_space = spaces.Box(np.array([-1.5708]*12), np.array([+1.5708]*12), dtype = np.float32)
     self.observation_space = spaces.Box(np.array([-100000]*3), np.array([+100000]*3))
-    
+    self.x_positions = []
+    self.episode_number = 0
+    self.max_timesteps = max_timesteps
   def step(self, action):
+    self.episode_number += 1
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
@@ -73,11 +78,19 @@ class SebEnv(gym.Env):
     #time.sleep(1./25.)
     nep, no = p.getBasePositionAndOrientation(self.boxId)
     observation = nep
+    self.x_positions.append(nep[0])
+    if len(self.x_positions) > 1000:
+      del self.x_positions[0]
     reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
-    print(nep)
+    if self.episode_number % 200 == 0:
+      print("timestep " + str(self.episode_number) + ": " + str(nep[0]))
     info = {}
     done = False
     if nep[0] > 1:
+      done = True
+    elif len(self.x_positions) == 1000 and self.x_positions[-1] - self.x_positions[0] > 5:
+      done = True
+    elif self.episode_number > self.max_timesteps:
       done = True
     return np.array(observation), reward, done, info
 
@@ -85,6 +98,9 @@ class SebEnv(gym.Env):
     p.resetBasePositionAndOrientation(self.boxId, self.cubeStartPos, self.cubeStartOrientation)
     p.resetBaseVelocity(self.boxId, [0, 0, 0], [0, 0, 0])
     position, ori = p.getBasePositionAndOrientation(self.boxId)
+    self.episode_number = 0
+    self.x_positions = []
+    print("resetting environment")
     return np.array(position)
     
   def render(self, mode='human'):
