@@ -82,7 +82,7 @@ class SebEnv(gym.Env):
     if len(self.x_positions) > 1000:
       del self.x_positions[0]
     reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
-    if self.episode_number % 200 == 0:
+    if self.episode_number % 10000 == 0:
       print("timestep " + str(self.episode_number) + ": " + str(nep[0]))
     info = {}
     done = False
