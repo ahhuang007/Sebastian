@@ -67,6 +67,7 @@ class SebEnv(gym.Env):
     self.x_positions = []
     self.episode_number = 0
     self.max_timesteps = max_timesteps
+
   def step(self, action):
     self.episode_number += 1
     p.stepSimulation()
@@ -92,7 +93,8 @@ class SebEnv(gym.Env):
       done = True
     elif self.episode_number > self.max_timesteps:
       done = True
-    return np.array(observation), reward, done, info
+
+    return np.array(observation, dtype = 'float32'), reward, done, info
 
   def reset(self):
     p.resetBasePositionAndOrientation(self.boxId, self.cubeStartPos, self.cubeStartOrientation)
@@ -101,7 +103,7 @@ class SebEnv(gym.Env):
     self.episode_number = 0
     self.x_positions = []
     print("resetting environment")
-    return np.array(position)
+    return np.array(position, dtype = 'float32')
     
   def render(self, mode='human'):
     ...
