@@ -62,8 +62,8 @@ class SebEnv(gym.Env):
 
     cubePos, cubeOrn = p.getBasePositionAndOrientation(self.boxId)
     
-    self.action_space = spaces.Box(np.array([-1.5708]*12), np.array([+1.5708]*12), dtype = np.float32)
-    self.observation_space = spaces.Box(np.array([-100000]*3), np.array([+100000]*3))
+    self.action_space = spaces.Box(-1.5708, +1.5708, shape = (12,), dtype = 'float32')
+    self.observation_space = spaces.Box(-100000, +100000, shape = (3,), dtype = 'float32')
     self.x_positions = []
     self.episode_number = 0
     self.max_timesteps = max_timesteps
