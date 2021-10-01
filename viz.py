@@ -40,7 +40,7 @@ check_env(env, warn=True)
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("real_model_ppo", env = env)
+model = PPO.load("test_model_ppo", env = env)
 print("loaded")
 done = False
 obs = env.reset()
