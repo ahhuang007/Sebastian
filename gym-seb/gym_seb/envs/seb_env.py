@@ -19,6 +19,7 @@ class SebEnv(gym.Env):
 
   def __init__(self,
                max_timesteps,
+               use_gui,
                urdf_root=pybullet_data.getDataPath(),
                distance_limit=float("inf"),
                self_collision_enabled=True,
@@ -44,7 +45,10 @@ class SebEnv(gym.Env):
                reflection=True,
                log_path=None):
     super(SebEnv, self).__init__()
-    physicsClient = p.connect(p.DIRECT)#or p.DIRECT for non-graphical version
+    if use_gui:
+        physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
+    else:
+        physicsClient = p.connect(p.DIRECT)
     p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
     p.setGravity(0,0,-10)
     p.resetDebugVisualizerCamera(cameraDistance = 1.5, cameraYaw=0, cameraPitch=0, cameraTargetPosition=[0,0,0])
@@ -78,11 +82,16 @@ class SebEnv(gym.Env):
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     
     nep, no = p.getBasePositionAndOrientation(self.boxId)
+    
     observation = nep
     self.x_positions.append(nep[0])
     if len(self.x_positions) > 1000:
       del self.x_positions[0]
     reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
+    #penalizing flipping over
+    reward = reward - no[0]**2
+    if no[0] > 0.8:
+        reward = reward - 20 #Really don't want Sebastian to flip over
     if self.episode_number % 10000 == 0:
       print("timestep " + str(self.episode_number) + ": " + str(nep[0]))
     info = {}
