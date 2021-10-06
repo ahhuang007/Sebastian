@@ -66,7 +66,7 @@ class SebEnv(gym.Env):
 
     cubePos, cubeOrn = p.getBasePositionAndOrientation(self.boxId)
     
-    self.action_space = spaces.Box(-1.5708, +1.5708, shape = (12,), dtype = 'float32')
+    self.action_space = spaces.Box(-1, +1, shape = (12,), dtype = 'float32')
     self.observation_space = spaces.Box(-100000, +100000, shape = (3,), dtype = 'float32')
     self.x_positions = []
     self.episode_number = 0
@@ -77,7 +77,7 @@ class SebEnv(gym.Env):
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
-    pos = action#.numpy()
+    pos = action*1.5708#.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     
@@ -111,6 +111,7 @@ class SebEnv(gym.Env):
     position, ori = p.getBasePositionAndOrientation(self.boxId)
     self.episode_number = 0
     self.x_positions = []
+    reward = 0
     print("resetting environment")
     return np.array(position, dtype = 'float32')
     
