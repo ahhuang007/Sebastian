@@ -26,7 +26,7 @@ check_env(env, warn=True)
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("test_model_ppo", env = env)
+model = PPO.load("real_model_ppo", env = env)
 print("loaded")
 done = False
 obs = env.reset()
@@ -34,7 +34,7 @@ i = 0
 while not done:
     action, _states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
-    time.sleep(0.1)
+    #time.sleep(1/60)
     print(i)
     i += 1
     print(obs)
