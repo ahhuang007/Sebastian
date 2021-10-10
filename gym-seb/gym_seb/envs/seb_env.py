@@ -77,7 +77,7 @@ class SebEnv(gym.Env):
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
-    pos = action*1.5708#.numpy()
+    pos = action*1.5708 #.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     
@@ -87,22 +87,32 @@ class SebEnv(gym.Env):
     self.x_positions.append(nep[0])
     if len(self.x_positions) > 1000:
       del self.x_positions[0]
+    '''
     reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
     #penalizing flipping over
     reward = reward - no[0]**2
     if no[0] > 0.8:
         reward = reward - 20 #Really don't want Sebastian to flip over
-    if self.episode_number % 10000 == 0:
-      print("timestep " + str(self.episode_number) + ": " + str(nep[0]))
+    '''
+    forward_reward = (nep[0] - op[0])/(1/60)
+    ctrl_cost = 0.5 * np.square(pos).sum()
+    survive_reward = 1
+    reward = forward_reward = ctrl_cost + survive_reward
     info = {}
     done = False
     if nep[0] > 1:
       done = True
+      print("x position is over 1")
     elif len(self.x_positions) == 1000 and self.x_positions[-1] - self.x_positions[0] > 5:
       done = True
+      print("speed is over 5 m/s")
     elif self.episode_number > self.max_timesteps:
       done = True
-
+      print("max timesteps reached")
+    elif np.abs(no[0]) > 0.8:
+      done = True
+      print("robot has flipped over")
+      
     return np.array(observation, dtype = 'float32'), reward, done, info
 
   def reset(self):
