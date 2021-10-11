@@ -95,23 +95,24 @@ class SebEnv(gym.Env):
         reward = reward - 20 #Really don't want Sebastian to flip over
     '''
     forward_reward = (nep[0] - op[0])/(1/60)
+    deviation_reward = np.abs(nep[1]) - np.abs(op[1])
     ctrl_cost = 0.5 * np.square(pos).sum()
     survive_reward = 1
-    reward = forward_reward = ctrl_cost + survive_reward
+    reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
     info = {}
     done = False
     if nep[0] > 1:
       done = True
-      print("x position is over 1")
+      print("x position is over 1 at timestep " + str(self.episode_number))
     elif len(self.x_positions) == 1000 and self.x_positions[-1] - self.x_positions[0] > 5:
       done = True
-      print("speed is over 5 m/s")
+      print("speed is over 5 m/s at timestep " + str(self.episode_number))
     elif self.episode_number > self.max_timesteps:
       done = True
-      print("max timesteps reached")
+      print("max timesteps reached at timestep " + str(self.episode_number))
     elif np.abs(no[0]) > 0.8:
       done = True
-      print("robot has flipped over")
+      print("robot has flipped over at timestep " + str(self.episode_number))
       
     return np.array(observation, dtype = 'float32'), reward, done, info
 
