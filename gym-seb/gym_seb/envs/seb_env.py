@@ -104,6 +104,8 @@ class SebEnv(gym.Env):
     if nep[1] > 0.5:
       done = True
       print("y position is over 0.5 at timestep " + str(self.episode_number))
+    elif nep[0] < 0.5 and self.episode_number > 5000:
+        print("hasn't gone far enough")
     elif self.episode_number > self.max_timesteps:
       done = True
       print("max timesteps reached at timestep " + str(self.episode_number))
