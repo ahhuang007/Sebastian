@@ -101,12 +101,9 @@ class SebEnv(gym.Env):
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
     info = {}
     done = False
-    if nep[0] > 1:
+    if nep[1] > 0.5:
       done = True
-      print("x position is over 1 at timestep " + str(self.episode_number))
-    elif len(self.x_positions) == 1000 and self.x_positions[-1] - self.x_positions[0] > 5:
-      done = True
-      print("speed is over 5 m/s at timestep " + str(self.episode_number))
+      print("y position is over 0.5 at timestep " + str(self.episode_number))
     elif self.episode_number > self.max_timesteps:
       done = True
       print("max timesteps reached at timestep " + str(self.episode_number))
