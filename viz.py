@@ -34,7 +34,7 @@ i = 0
 while not done:
     action, _states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
-    #time.sleep(1/60)
+    time.sleep(1/60)
     #print(i)
     i += 1
     #print(obs)
