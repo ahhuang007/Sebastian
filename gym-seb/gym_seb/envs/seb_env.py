@@ -46,9 +46,9 @@ class SebEnv(gym.Env):
                log_path=None):
     super(SebEnv, self).__init__()
     if use_gui:
-        physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
+        self.physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
     else:
-        physicsClient = p.connect(p.DIRECT)
+        self.physicsClient = p.connect(p.DIRECT)
     p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
     p.setGravity(0,0,-10)
     p.resetDebugVisualizerCamera(cameraDistance = 1.5, cameraYaw=0, cameraPitch=0, cameraTargetPosition=[0,0,0])
@@ -65,9 +65,12 @@ class SebEnv(gym.Env):
     self.joints = [1,2,3,5,6,7,9,10,11,13,14,15]
 
     cubePos, cubeOrn = p.getBasePositionAndOrientation(self.boxId)
-    
+    jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
+    jointPos = [x[0] for x in jointData]
+    jointVel = [x[1] for x in jointData]
+       
     self.action_space = spaces.Box(-1, +1, shape = (12,), dtype = 'float32')
-    self.observation_space = spaces.Box(-100000, +100000, shape = (3,), dtype = 'float32')
+    self.observation_space = spaces.Box(-100000, +100000, shape = (27,), dtype = 'float32')
     self.x_positions = []
     self.episode_number = 0
     self.max_timesteps = max_timesteps
@@ -82,6 +85,9 @@ class SebEnv(gym.Env):
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     
     nep, no = p.getBasePositionAndOrientation(self.boxId)
+    jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
+    jointPos = tuple([x[0] for x in jointData])
+    jointVel = tuple([x[1] for x in jointData])
     
     observation = nep
     self.x_positions.append(nep[0])
@@ -100,6 +106,7 @@ class SebEnv(gym.Env):
     survive_reward = 0.1
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
     info = {}
+    total_obs = tuple(observation) + jointPos + jointVel
     done = False
     if nep[1] > 0.5:
       done = True
@@ -114,17 +121,21 @@ class SebEnv(gym.Env):
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
       
-    return np.array(observation, dtype = 'float32'), reward, done, info
+    return np.array(total_obs, dtype = 'float32'), reward, done, info
 
   def reset(self):
     p.resetBasePositionAndOrientation(self.boxId, self.cubeStartPos, self.cubeStartOrientation)
     p.resetBaseVelocity(self.boxId, [0, 0, 0], [0, 0, 0])
     position, ori = p.getBasePositionAndOrientation(self.boxId)
+    jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
+    jointPos = tuple([x[0] for x in jointData])
+    jointVel = tuple([x[1] for x in jointData])
     self.episode_number = 0
     self.x_positions = []
     reward = 0
     print("resetting environment")
-    return np.array(position, dtype = 'float32')
+    all_data = tuple(position) + jointPos + jointVel
+    return np.array(all_data, dtype = 'float32')
     
   def render(self, mode='human'):
     ...
