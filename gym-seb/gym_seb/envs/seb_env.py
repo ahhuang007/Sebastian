@@ -89,6 +89,7 @@ class SebEnv(gym.Env):
     jointPos = tuple([x[0] for x in jointData])
     jointVel = tuple([x[1] for x in jointData])
     
+    
     observation = nep
     self.x_positions.append(nep[0])
     if len(self.x_positions) > 1000:
