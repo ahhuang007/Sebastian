@@ -18,7 +18,7 @@ from stable_baselines3.common.env_util import make_vec_env
 import gym
 import gym_seb
 
-env = gym.make('seb-v0', max_timesteps = 100000, use_gui = True)
+env = gym.make('seb-v0', max_timesteps = 10000, use_gui = True)
 
 from stable_baselines3.common.env_checker import check_env
 
@@ -31,6 +31,13 @@ print("loaded")
 done = False
 obs = env.reset()
 i = 0
+from stable_baselines3.common.evaluation import evaluate_policy
+
+#performance with random model
+mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, deterministic=True)
+
+print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+'''
 while not done:
     action, _states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
@@ -38,4 +45,5 @@ while not done:
     #print(i)
     i += 1
     #print(obs)
-p.disconnect()
+'''
+env.close()
