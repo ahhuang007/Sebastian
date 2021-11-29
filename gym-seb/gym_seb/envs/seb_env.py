@@ -109,18 +109,13 @@ class SebEnv(gym.Env):
     info = {}
     total_obs = tuple(observation) + jointPos + jointVel
     done = False
-    if nep[1] > 0.5:
-      done = True
-      print("y position is over 0.5 at timestep " + str(self.episode_number))
-    elif nep[0] < 0.5 and self.episode_number > 5000:
-        done = True
-        print("hasn't gone far enough")
-    elif self.episode_number > self.max_timesteps:
-      done = True
-      print("max timesteps reached at timestep " + str(self.episode_number))
-    elif np.abs(no[0]) > 0.8:
+    if np.abs(no[0]) > 0.8:
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
+    
+    if self.episode_number % 10000 == 0:
+        print("at episode " + str(self.episode_number))
+        print(observation)
       
     return np.array(total_obs, dtype = 'float32'), reward, done, info
 
