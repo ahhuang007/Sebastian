@@ -104,7 +104,7 @@ class SebEnv(gym.Env):
     forward_reward = (nep[0] - op[0])/(1/60)
     deviation_reward = np.abs(nep[1]) - np.abs(op[1])
     ctrl_cost = 0.5 * np.square(pos).sum()
-    survive_reward = 0.1
+    survive_reward = 0.0
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
     info = {}
     total_obs = tuple(observation) + jointPos + jointVel
@@ -112,7 +112,9 @@ class SebEnv(gym.Env):
     if np.abs(no[0]) > 0.8:
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
-    
+    elif self.episode_number > self.max_timesteps:
+      done = True
+      print("max timesteps reached")
     if self.episode_number % 10000 == 0:
         print("at episode " + str(self.episode_number))
         print(observation)
