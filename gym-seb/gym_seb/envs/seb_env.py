@@ -104,8 +104,8 @@ class SebEnv(gym.Env):
         reward = reward - 20 #Really don't want Sebastian to flip over
     '''
     forward_reward = (nep[0] - op[0])/(1/240)
-    deviation_reward = np.abs(nep[1]) - np.abs(op[1])
-    ctrl_cost = 0.5 * np.square(pos).sum()
+    deviation_reward = (np.abs(nep[1]) - np.abs(op[1]))/(1/240)
+    ctrl_cost = 0.005 * np.square(pos).sum()
     survive_reward = 0.0
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
     info = {}
