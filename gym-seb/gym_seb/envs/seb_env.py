@@ -18,7 +18,7 @@ class SebEnv(gym.Env):
   metadata = {'render.modes': ['human']}
 
   def __init__(self,
-               max_timesteps,
+               episode_timesteps,
                use_gui,
                urdf_root=pybullet_data.getDataPath(),
                distance_limit=float("inf"),
@@ -73,10 +73,12 @@ class SebEnv(gym.Env):
     self.observation_space = spaces.Box(-100000, +100000, shape = (27,), dtype = 'float32')
     self.x_positions = []
     self.episode_number = 0
-    self.max_timesteps = max_timesteps
+    self.episode_timesteps = episode_timesteps
+    self.timestep_num = 0
 
   def step(self, action):
     self.episode_number += 1
+    self.timestep_num += 1
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
@@ -112,12 +114,12 @@ class SebEnv(gym.Env):
     if np.abs(no[0]) > 0.8:
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
-    elif self.episode_number > self.max_timesteps:
+    elif self.timestep_num > 10000:
       done = True
-      print("max timesteps reached")
+      print("maximum timestep reached for episode")
     if self.episode_number % 10000 == 0:
         print("at episode " + str(self.episode_number))
-        print(observation)
+        print(reward)
       
     return np.array(total_obs, dtype = 'float32'), reward, done, info
 
@@ -128,9 +130,8 @@ class SebEnv(gym.Env):
     jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
     jointPos = tuple([x[0] for x in jointData])
     jointVel = tuple([x[1] for x in jointData])
-    self.episode_number = 0
+    self.timestep_num = 0
     self.x_positions = []
-    reward = 0
     print("resetting environment")
     all_data = tuple(position) + jointPos + jointVel
     return np.array(all_data, dtype = 'float32')
