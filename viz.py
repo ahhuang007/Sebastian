@@ -18,7 +18,7 @@ from stable_baselines3.common.env_util import make_vec_env
 import gym
 import gym_seb
 
-env = gym.make('seb-v0', max_timesteps = 10000, use_gui = True)
+env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = True)
 
 from stable_baselines3.common.env_checker import check_env
 
