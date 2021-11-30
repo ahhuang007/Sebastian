@@ -103,7 +103,7 @@ class SebEnv(gym.Env):
     if no[0] > 0.8:
         reward = reward - 20 #Really don't want Sebastian to flip over
     '''
-    forward_reward = (nep[0] - op[0])/(1/60)
+    forward_reward = (nep[0] - op[0])/(1/240)
     deviation_reward = np.abs(nep[1]) - np.abs(op[1])
     ctrl_cost = 0.5 * np.square(pos).sum()
     survive_reward = 0.0
