@@ -82,7 +82,7 @@ class SebEnv(gym.Env):
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
-    pos = action*1.5708 #.numpy()
+    pos = action*111.5708 #.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     
@@ -108,6 +108,8 @@ class SebEnv(gym.Env):
     ctrl_cost = 0.005 * np.square(pos).sum()
     survive_reward = 0.0
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
+    #Experimental reward function below
+    #reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[2]) - 0.01*(no[0]**2 + no[1]**2)
     info = {}
     total_obs = tuple(observation) + jointPos + jointVel
     done = False
