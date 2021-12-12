@@ -681,57 +681,7 @@
 		<child link = "right_claw"/>
 	</joint>
 	
-	<link name = "right_leg">
-		<visual>
-			<origin rpy = "1.5708 0 -2.3562" xyz = "0 0 0"/>
-			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//right_leg_fine.STL" scale = ".001 .001 .001"/>
-			</geometry>
-			<material name = "yellow">
-				<color rgba = "1 1 0 1"/>
-			</material>
-		</visual>
-		<collision>
-			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//right_leg_coarse.STL" scale = ".001 .001 .001"/>
-			</geometry>
-			<origin rpy = "1.5708 0 -2.3562" xyz = "0 0 0"/>
-		</collision>
-	</link>
 	
-	<joint name = "base_bottom_to_right_leg" type = "revolute">
-		<axis xyz = "0 0 1"/>
-		<limit effort = "1000" lower = "-.1" upper = ".548" velocity = "0.5"/>
-		<origin xyz = "-0.05282 0.0961 0.00318"/>
-		<parent link = "base_plate_bottom"/>
-		<child link = "right_leg"/>
-	</joint>
-	
-	<link name = "left_leg">
-		<visual>
-			<origin rpy = "1.5708 0 2.3562" xyz = "0 0 0"/>
-			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//left_leg_fine.STL" scale = ".001 .001 .001"/>
-			</geometry>
-			<material name = "yellow">
-				<color rgba = "1 1 0 1"/>
-			</material>
-		</visual>
-		<collision>
-			<geometry>
-				<mesh filename = "//cad_files//simulation//stls//left_leg_coarse.STL" scale = ".001 .001 .001"/>
-			</geometry>
-			<origin rpy = "1.5708 0 2.3562" xyz = "0 0 0"/>
-		</collision>
-	</link>
-	
-	<joint name = "base_bottom_to_left_leg" type = "revolute">
-		<axis xyz = "0 0 1"/>
-		<limit effort = "1000" lower = "-.1" upper = ".548" velocity = "0.5"/>
-		<origin xyz = "0.05282 0.0961 0.00318"/>
-		<parent link = "base_plate_bottom"/>
-		<child link = "left_leg"/>
-	</joint>
 	
 	<link name = "face">
 		<visual>

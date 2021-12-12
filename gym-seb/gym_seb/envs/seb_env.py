@@ -113,7 +113,7 @@ class SebEnv(gym.Env):
     info = {}
     total_obs = tuple(observation) + jointPos + jointVel
     done = False
-    if np.abs(no[0]) > 0.8:
+    if np.abs(no[0]) > 0.7:
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
     elif self.timestep_num > 10000:

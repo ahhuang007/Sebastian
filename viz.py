@@ -34,16 +34,16 @@ i = 0
 from stable_baselines3.common.evaluation import evaluate_policy
 
 #performance with random model
-mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, deterministic=True)
+#mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, deterministic=True)
 
-print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
-'''
+#print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+
 while not done:
     action, _states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
-    time.sleep(1/60)
+    time.sleep(1/240)
     #print(i)
     i += 1
-    #print(obs)
-'''
+    print(obs)
+
 env.close()
