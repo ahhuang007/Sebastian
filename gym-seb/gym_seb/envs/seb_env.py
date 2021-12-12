@@ -67,11 +67,10 @@ class SebEnv(gym.Env):
     cubePos, cubeOrn = p.getBasePositionAndOrientation(self.boxId)
     jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
     jointPos = [x[0] for x in jointData]
-    jointVel = [x[1] for x in jointData]
+    
        
     self.action_space = spaces.Box(-1, +1, shape = (12,), dtype = 'float32')
-    self.observation_space = spaces.Box(-100000, +100000, shape = (27,), dtype = 'float32')
-    self.x_positions = []
+    self.observation_space = spaces.Box(-100000, +100000, shape = (18,), dtype = 'float32')
     self.episode_number = 0
     self.episode_timesteps = episode_timesteps
     self.timestep_num = 0
@@ -82,7 +81,7 @@ class SebEnv(gym.Env):
     p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
-    pos = action*111.5708 #.numpy()
+    pos = action*1.5708 #.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     
@@ -93,16 +92,8 @@ class SebEnv(gym.Env):
     
     
     observation = nep
-    self.x_positions.append(nep[0])
-    if len(self.x_positions) > 1000:
-      del self.x_positions[0]
-    '''
-    reward = (nep[0] - np.abs(op[0])) - np.abs(op[1])
-    #penalizing flipping over
-    reward = reward - no[0]**2
-    if no[0] > 0.8:
-        reward = reward - 20 #Really don't want Sebastian to flip over
-    '''
+    orientation = no
+    
     forward_reward = (nep[0] - op[0])/(1/240)
     deviation_reward = (np.abs(nep[1]) - np.abs(op[1]))/(1/240)
     ctrl_cost = 0.005 * np.square(pos).sum()
@@ -111,7 +102,7 @@ class SebEnv(gym.Env):
     #Experimental reward function below
     #reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[2]) - 0.01*(no[0]**2 + no[1]**2)
     info = {}
-    total_obs = tuple(observation) + jointPos + jointVel
+    total_obs = tuple(observation) + tuple(orientation) + jointPos
     done = False
     if np.abs(no[0]) > 0.7:
       done = True
@@ -131,11 +122,9 @@ class SebEnv(gym.Env):
     position, ori = p.getBasePositionAndOrientation(self.boxId)
     jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
     jointPos = tuple([x[0] for x in jointData])
-    jointVel = tuple([x[1] for x in jointData])
     self.timestep_num = 0
-    self.x_positions = []
     print("resetting environment")
-    all_data = tuple(position) + jointPos + jointVel
+    all_data = tuple(position) + tuple(ori) + jointPos
     return np.array(all_data, dtype = 'float32')
     
   def render(self, mode='human'):
