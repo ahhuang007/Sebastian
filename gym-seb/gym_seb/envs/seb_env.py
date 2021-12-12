@@ -88,11 +88,10 @@ class SebEnv(gym.Env):
     nep, no = p.getBasePositionAndOrientation(self.boxId)
     jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
     jointPos = tuple([x[0] for x in jointData])
-    jointVel = tuple([x[1] for x in jointData])
     
     
     observation = nep
-    orientation = no
+    orientation = p.getEulerFromQuaternion(no)
     
     forward_reward = (nep[0] - op[0])/(1/240)
     deviation_reward = (np.abs(nep[1]) - np.abs(op[1]))/(1/240)
@@ -124,6 +123,7 @@ class SebEnv(gym.Env):
     jointPos = tuple([x[0] for x in jointData])
     self.timestep_num = 0
     print("resetting environment")
+    ori = p.getEulerFromQuaternion(ori)
     all_data = tuple(position) + tuple(ori) + jointPos
     return np.array(all_data, dtype = 'float32')
     
