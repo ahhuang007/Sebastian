@@ -453,6 +453,13 @@
 			<mass value = ".0617"/>
 			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
 		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
 	</link>
 	
 	<joint name = "front_left_p3p4" type = "revolute">
@@ -484,6 +491,13 @@
 			<mass value = ".0617"/>
 			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
 		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
 	</link>
 	
 	<joint name = "front_right_p3p4" type = "revolute">
@@ -515,6 +529,13 @@
 			<mass value = ".0617"/>
 			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
 		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
 	</link>
 	
 	<joint name = "back_left_p3p4" type = "revolute">
@@ -546,6 +567,13 @@
 			<mass value = ".0617"/>
 			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
 		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
 	</link>
 	
 	<joint name = "back_right_p3p4" type = "revolute">
