@@ -26,7 +26,7 @@ check_env(env, warn=True)
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("real_model_ppo", env = env)
+model = PPO.load("random_model_ppo_action", env = env)
 print("loaded")
 done = False
 obs = env.reset()
