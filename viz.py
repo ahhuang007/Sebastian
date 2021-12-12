@@ -26,7 +26,7 @@ check_env(env, warn=True)
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("models/real_model_ppo_v3", env = env)
+model = PPO.load("models/real_model_ppo_v4", env = env)
 print("loaded")
 done = False
 obs = env.reset()
@@ -34,10 +34,10 @@ i = 0
 from stable_baselines3.common.evaluation import evaluate_policy
 
 #performance with random model
-mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, deterministic=True)
+#mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, deterministic=True)
 
-print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
-'''
+#print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+#'''
 while not done:
     action, _states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
@@ -45,5 +45,5 @@ while not done:
     #print(i)
     i += 1
     print(obs)
-'''
+#'''
 env.close()
