@@ -96,7 +96,7 @@ class SebEnv(gym.Env):
     forward_reward = (nep[0] - op[0])/(1/240)
     deviation_reward = (np.abs(nep[1]) - np.abs(op[1]))/(1/240)
     ctrl_cost = 0.005 * np.square(pos).sum()
-    survive_reward = 0.0
+    survive_reward = 0.5
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
     #Experimental reward function below
     #reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[2]) - 0.01*(no[0]**2 + no[1]**2)
