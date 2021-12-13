@@ -39,7 +39,7 @@ from stable_baselines3.common.evaluation import evaluate_policy
 #print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
 #'''
 while not done:
-    action, _states = model.predict(obs)
+    action, _states = model.predict(obs, deterministic = True)
     obs, rewards, done, info = env.step(action)
     time.sleep(1/240)
     #print(i)

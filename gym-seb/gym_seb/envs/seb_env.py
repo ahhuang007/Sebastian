@@ -99,7 +99,7 @@ class SebEnv(gym.Env):
     survive_reward = 0.5
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward
     #Experimental reward function below
-    reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[0]) - 0.01*(no[2]**2 + no[1]**2)
+    #reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[0]) - 0.01*(no[2]**2 + no[1]**2)
     info = {}
     total_obs = tuple(observation) + tuple(orientation) + jointPos
     done = False
