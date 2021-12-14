@@ -51,7 +51,7 @@ class SebEnv(gym.Env):
         self.physicsClient = p.connect(p.DIRECT)
     p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
     p.setGravity(0,0,-10)
-    p.resetDebugVisualizerCamera(cameraDistance = 1.5, cameraYaw=0, cameraPitch=0, cameraTargetPosition=[0,0,0])
+    p.resetDebugVisualizerCamera(cameraDistance = 2.5, cameraYaw=40, cameraPitch=-36, cameraTargetPosition=[0,0,0])
     planeId = p.loadURDF("plane.urdf")
     
     self.cubeStartPos = [0,0,0.1]
@@ -94,7 +94,7 @@ class SebEnv(gym.Env):
     orientation = p.getEulerFromQuaternion(no)
     
     forward_reward = (nep[0] - op[0])/(1/240)
-    deviation_reward = (np.abs(nep[1]) - np.abs(op[1]))/(1/240)
+    deviation_reward = (np.abs(nep[1]))/(1/240) 
     pitch_reward = 0.005*np.abs(orientation[0])
     yaw_reward = 0.005*np.abs(orientation[2])
     ctrl_cost = 0.005 * np.square(pos).sum()
