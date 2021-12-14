@@ -95,16 +95,17 @@ class SebEnv(gym.Env):
     
     forward_reward = (nep[0] - op[0])/(1/240)
     deviation_reward = (np.abs(nep[1]) - np.abs(op[1]))/(1/240)
-    pitch_reward = 0.005*np.abs(no[0])
+    pitch_reward = 0.005*np.abs(orientation[0])
+    yaw_reward = 0.005*np.abs(orientation[2])
     ctrl_cost = 0.005 * np.square(pos).sum()
     survive_reward = 0.5
-    reward = forward_reward - ctrl_cost - deviation_reward + survive_reward - pitch_reward
+    reward = forward_reward - ctrl_cost - deviation_reward + survive_reward - pitch_reward - yaw_reward
     #Experimental reward function below
     #reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[0]) - 0.01*(no[2]**2 + no[1]**2)
     info = {}
     total_obs = tuple(observation) + tuple(orientation) + jointPos
     done = False
-    if np.abs(no[0]) > 0.7:
+    if orientation[0] > 0.7 or orientation[0] < -1.5708:
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
     elif self.timestep_num > 10000:
