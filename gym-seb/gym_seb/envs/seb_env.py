@@ -114,6 +114,7 @@ class SebEnv(gym.Env):
     if self.episode_number % 10000 == 0:
         print("at episode " + str(self.episode_number))
         print(reward)
+    info['ep'] = self.timestep_num
       
     return np.array(total_obs, dtype = 'float32'), reward, done, info
 
