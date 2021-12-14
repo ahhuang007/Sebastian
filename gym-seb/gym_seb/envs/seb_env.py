@@ -94,10 +94,10 @@ class SebEnv(gym.Env):
     orientation = p.getEulerFromQuaternion(no)
     
     forward_reward = (nep[0] - op[0])/(1/240)
-    deviation_reward = (np.abs(nep[1]))/(1/240) 
-    pitch_reward = 0.005*np.abs(orientation[0])
-    yaw_reward = 0.005*np.abs(orientation[2])
-    ctrl_cost = 0.005 * np.square(pos).sum()
+    deviation_reward = 0.05*(np.abs(nep[1]))/(1/240) 
+    pitch_reward = 0.05*np.abs(orientation[0])
+    yaw_reward = 0.05*np.abs(orientation[2])
+    ctrl_cost = 0.05 * np.square(pos).sum()
     survive_reward = 0.5
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward - pitch_reward - yaw_reward
     #Experimental reward function below
@@ -105,7 +105,7 @@ class SebEnv(gym.Env):
     info = {}
     total_obs = tuple(observation) + tuple(orientation) + jointPos
     done = False
-    if orientation[0] > 0.7 or orientation[0] < -1.5708:
+    if orientation[0] > 0.8 or orientation[0] < -1.5708:
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
     elif self.timestep_num > 10000:
@@ -115,6 +115,11 @@ class SebEnv(gym.Env):
         print("at episode " + str(self.episode_number))
         print(reward)
     info['ep'] = self.timestep_num
+    info['f_reward'] = forward_reward
+    info['d_reward'] = deviation_reward
+    info['p_reward'] = pitch_reward
+    info['y_reward'] = yaw_reward
+    info['c_reward'] = ctrl_cost
       
     return np.array(total_obs, dtype = 'float32'), reward, done, info
 

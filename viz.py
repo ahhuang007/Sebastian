@@ -28,7 +28,7 @@ check_env(env, warn=True)
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("models/real_model_ppo_v9", env = env)
+model = PPO.load("models/real_model_ppo_v10", env = env)
 env.seed(4)
 model.set_random_seed(4)
 env.action_space.seed(4)
@@ -46,7 +46,8 @@ for j in range(10):
         action, _states = model.predict(obs)#, deterministic = True)
         obs, rewards, done, info = env.step(action)
         reward += rewards
-        #print(i)
+        time.sleep(1/240)
+        print(obs)
         #i += 1
     testing_rewards.append(reward)
     obs = env.reset()
