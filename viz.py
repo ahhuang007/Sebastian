@@ -17,8 +17,10 @@ from stable_baselines3 import DDPG, PPO
 from stable_baselines3.common.env_util import make_vec_env
 import gym
 import gym_seb
+from stable_baselines3.common.evaluation import evaluate_policy
+import random
 
-env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = True)
+env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = False)
 
 from stable_baselines3.common.env_checker import check_env
 
@@ -27,23 +29,29 @@ check_env(env, warn=True)
 mode = p.POSITION_CONTROL
 
 model = PPO.load("models/real_model_ppo_v4", env = env)
+
 print("loaded")
 done = False
 obs = env.reset()
-i = 0
-from stable_baselines3.common.evaluation import evaluate_policy
 
-#performance with random model
-#mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10, deterministic=True)
+#performance
+testing_rewards = []
+for j in range(10):
+    reward = 0
+    while not done:
+        action, _states = model.predict(obs)#, deterministic = True)
+        obs, rewards, done, info = env.step(action)
+        reward += rewards
+        #time.sleep(1/240)
+        #print(i)
+        #i += 1
+        #print(obs)
+    testing_rewards.append(reward)
+    obs = env.reset()
+    done = False
 
-#print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
-#'''
-while not done:
-    action, _states = model.predict(obs, deterministic = True)
-    obs, rewards, done, info = env.step(action)
-    time.sleep(1/240)
-    #print(i)
-    i += 1
-    print(obs)
-#'''
+mean_reward = np.mean(testing_rewards)
+std_reward = np.std(testing_rewards)
+print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+
 env.close()
