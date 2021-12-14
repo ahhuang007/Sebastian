@@ -20,7 +20,7 @@ import gym_seb
 from stable_baselines3.common.evaluation import evaluate_policy
 import random
 
-env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = False)
+env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = True)
 
 from stable_baselines3.common.env_checker import check_env
 
@@ -28,7 +28,11 @@ check_env(env, warn=True)
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("models/real_model_ppo_v4", env = env)
+model = PPO.load("models/real_model_ppo_v6", env = env)
+env.seed(4)
+model.set_random_seed(4)
+env.action_space.seed(4)
+env.observation_space.seed(4)
 
 print("loaded")
 done = False

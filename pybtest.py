@@ -24,7 +24,7 @@ cubeStartPos = [0,0,.1]
 
 cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
 
-boxId = p.loadURDF("sebastian_v2.urdf",cubeStartPos, cubeStartOrientation)
+boxId = p.loadURDF("sebastian_v3.urdf",cubeStartPos, cubeStartOrientation)
 #box2Id = p.createMultiBody(0, sphere, basePosition = [0, 0, 0])
 #box3Id = p.createMultiBody(0, sphere, basePosition = [0.25, 0, 0])
 #box4Id = p.createMultiBody(0, sphere2, basePosition = [0, 0.3, 0])

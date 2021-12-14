@@ -58,7 +58,7 @@ class SebEnv(gym.Env):
     
     self.cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
     
-    self.boxId = p.loadURDF("sebastian_v2.urdf",self.cubeStartPos, self.cubeStartOrientation, 
+    self.boxId = p.loadURDF("sebastian_v3.urdf",self.cubeStartPos, self.cubeStartOrientation, 
                        flags = p.URDF_USE_SELF_COLLISION_EXCLUDE_PARENT)
     
     self.mode = p.POSITION_CONTROL

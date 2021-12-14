@@ -1,0 +1,687 @@
+<?xml version="1.0"?>
+<robot name="sebastian">
+	
+	<link name="base_plate_bottom">
+		<visual>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//base_plate_fine.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<material name = "acrylic">
+				<color rgba = "1 1 1 0.5"/>	
+			</material>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//base_plate_coarse.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value = ".07938"/>
+			<inertia ixx = "0.000283" ixy = "0.0" ixz = "0.0" iyy = "0.000296" iyz = "0.000007" izz = "0.000578" />
+		</inertial>
+		
+	</link>
+	
+	<link name="front_left_p1">
+		<visual>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p1_fine.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<material name = "red">
+				<color rgba = "1 0 0 1"/>
+			</material>
+			<origin rpy="0 0 1.233" xyz="0 0 0"/>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<origin rpy="0 0 1.233" xyz="0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".052"/>
+			<inertia ixx = "0.0005" ixy = "0.0006" ixz = "0.0004" iyy = "0.0012" iyz = "0.0002" izz = "0.0014" />
+		</inertial>
+		
+	</link>
+	
+	<joint name = "base_bottom_to_flp1" type = "fixed">
+		<parent link = "base_plate_bottom"/>
+		<child link = "front_left_p1"/>
+		<origin xyz = ".09456 .01677 .00418"/>
+	</joint>
+	
+	<link name="front_right_p1">
+		<visual>
+			<origin rpy="0 0 -1.233" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p1_fine.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<material name = "red">
+				<color rgba = "1 0 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<origin rpy="0 0 -1.233" xyz="0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".052"/>
+			<inertia ixx = "0.0005" ixy = "0.0006" ixz = "0.0004" iyy = "0.0012" iyz = "0.0002" izz = "0.0014" />
+		</inertial>
+	</link>
+	
+	<joint name = "base_bottom_to_frp1" type = "fixed">
+		<parent link = "base_plate_bottom"/>
+		<child link = "front_right_p1"/>
+		<origin xyz = "-.10118 .03565 .00418"/>
+	</joint>
+	
+	<link name="back_left_p1">
+		<visual>
+			<origin rpy="0 0 2.042" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p1_fine.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<material name = "red">
+				<color rgba = "1 0 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<origin rpy="0 0 2.042" xyz="0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".052"/>
+			<inertia ixx = "0.0005" ixy = "0.0006" ixz = "0.0004" iyy = "0.0012" iyz = "0.0002" izz = "0.0014" />
+		</inertial>
+	</link>
+	
+	<joint name = "base_bottom_to_blp1" type = "fixed">
+		<origin xyz = "0.09715 0.07068 .00418"/>
+		<parent link = "base_plate_bottom"/>
+		<child link = "back_left_p1"/>
+	</joint>
+	
+	<link name="back_right_p1">
+		<visual>
+			<origin rpy="0 0 -2.042" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p1_fine.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<material name = "red">
+				<color rgba = "1 0 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p1_coarse.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<origin rpy="0 0 -2.042" xyz="0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".052"/>
+			<inertia ixx = "0.0005" ixy = "0.0006" ixz = "0.0004" iyy = "0.0012" iyz = "0.0002" izz = "0.0014" />
+		</inertial>
+	</link>
+	
+	<joint name = "base_bottom_to_brp1" type = "fixed">
+		<origin xyz = "-.08808 0.08850 .00418"/>
+		<parent link = "base_plate_bottom"/>
+		<child link = "back_right_p1"/>
+	</joint>
+	
+	<link name="base_plate_top">
+		<visual>
+			<origin rpy="0.0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//top_plate_fine.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<material name = "acrylic">
+				<color rgba = "1 1 1 0.5"/>	
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//top_plate_coarse.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value = ".07938"/>
+			<inertia ixx = "0.000283" ixy = "0.0" ixz = "0.0" iyy = "0.000296" iyz = "0.000007" izz = "0.000578" />
+		</inertial>
+		
+	</link>
+	
+	<joint name = "base_bottom_to_top" type = "fixed">
+		<origin xyz = "0 0 0.03793"/>
+		<parent link = "base_plate_bottom"/>
+		<child link = "base_plate_top"/>
+	</joint>
+	
+	<link name="battery">
+		<visual>
+			<origin rpy="0.0 0 1.5708" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//battery_fine.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+			<material name = "black">
+				<color rgba = "0 0 0 1"/>	
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//battery_coarse.STL" scale = "0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value = "1"/>
+			<inertia ixx = "0.0008" ixy = "0.0000" ixz = "0.0000" iyy = "0.0017" iyz = "0.0000" izz = "0.0015" />
+		</inertial>
+	</link>
+	
+	<joint name = "base_bottom_to_battery" type = "fixed">
+		<origin xyz = "0 0.025 0.00318"/>
+		<parent link = "base_plate_bottom"/>
+		<child link = "battery"/>
+	</joint>
+	
+	<link name="front_left_p2">
+		<visual>
+			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p2_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "blue">
+				<color rgba = "0 0 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p2_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0528"/>
+			<inertia ixx = "0.0008" ixy = "0.0006" ixz = "0.0005" iyy = "0.0012" iyz = "0.0004" izz = "0.0014" />
+		</inertial>
+	</link>
+	
+	<joint name = "front_left_p1p2" type = "revolute">
+		<axis xyz = "0 0 1" />
+		<origin xyz = ".030675 -.000176 .0365"/>
+		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<parent link = "front_left_p1"/>
+		<child link = "front_left_p2"/>
+	</joint>
+	
+	<link name="front_right_p2">
+		<visual>
+			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p2_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "blue">
+				<color rgba = "0 0 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p2_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0528"/>
+			<inertia ixx = "0.0008" ixy = "0.0006" ixz = "0.0005" iyy = "0.0012" iyz = "0.0004" izz = "0.0014" />
+		</inertial>
+	</link>
+	
+	<joint name = "front_right_p1p2" type = "revolute">
+		<axis xyz = "0 0 1" />
+		<origin xyz = "-.023771 -.019389 .0365"/>
+		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<parent link = "front_right_p1"/>
+		<child link = "front_right_p2"/>
+	</joint>
+	
+	<link name="back_left_p2">
+		<visual>
+			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p2_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "blue">
+				<color rgba = "0 0 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p2_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0528"/>
+			<inertia ixx = "0.0008" ixy = "0.0006" ixz = "0.0005" iyy = "0.0012" iyz = "0.0004" izz = "0.0014" />
+		</inertial>
+	</link>
+	
+	<joint name = "back_left_p1p2" type = "revolute">
+		<axis xyz = "0 0 1" />
+		<origin xyz = ".021300 .022075 .0365"/>
+		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<parent link = "back_left_p1"/>
+		<child link = "back_left_p2"/>
+	</joint>
+	
+	<link name="back_right_p2">
+		<visual>
+			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p2_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "blue">
+				<color rgba = "0 0 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p2_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0528"/>
+			<inertia ixx = "0.0008" ixy = "0.0006" ixz = "0.0005" iyy = "0.0012" iyz = "0.0004" izz = "0.0014" />
+		</inertial>
+	</link>
+	
+	<joint name = "back_right_p1p2" type = "revolute">
+		<axis xyz = "0 0 1" />
+		<origin xyz = "-.030379 .0042546 .0365"/>
+		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<parent link = "back_right_p1"/>
+		<child link = "back_right_p2"/>
+	</joint>
+	
+	<link name = "front_left_p3">
+		<visual>
+			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p3_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "green">
+				<color rgba = "0 1 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p3_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+	</link>
+	
+	<joint name = "front_left_p2p3" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = ".06069 0.018 -0.00696"/>
+		<limit effort = "1000" lower = "-1.5708" upper = ".9" velocity = "1"/>
+		<parent link = "front_left_p2"/>
+		<child link = "front_left_p3"/>
+		
+	</joint>
+	
+	<link name = "front_right_p3">
+		<visual>
+			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p3_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "green">
+				<color rgba = "0 1 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p3_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+	</link>
+	
+	<joint name = "front_right_p2p3" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = "-.06069 -0.018 -0.00696"/>
+		<limit effort = "1000" lower = "-.9" upper = "1.5708" velocity = "1"/>
+		<parent link = "front_right_p2"/>
+		<child link = "front_right_p3"/>
+		
+	</joint>
+	
+	<link name = "back_left_p3">
+		<visual>
+			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p3_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "green">
+				<color rgba = "0 1 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p3_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 -1.5708 3.1415" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+	</link>
+	
+	<joint name = "back_left_p2p3" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = ".06069 0.018 -0.00696"/>
+		<limit effort = "1000" lower = "-1.5708" upper = ".9" velocity = "1"/>
+		<parent link = "back_left_p2"/>
+		<child link = "back_left_p3"/>
+	</joint>
+	
+	<link name = "back_right_p3">
+		<visual>
+			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p3_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "green">
+				<color rgba = "0 1 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p3_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+	</link>
+	
+	<joint name = "back_right_p2p3" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = "-.06069 -0.018 -0.00696"/>
+		<limit effort = "1000" lower = "-.9" upper = "1.5708" velocity = "1"/>
+		<parent link = "back_right_p2"/>
+		<child link = "back_right_p3"/>
+	</joint>
+	
+	<link name = "front_left_p4">
+		<visual>
+			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p4_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "cyan">
+				<color rgba = "0 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_left_p4_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
+	</link>
+	
+	<joint name = "front_left_p3p4" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = "0.06704 -0.00023 -0.01303"/>
+		<limit effort = "1000" lower = "-1.5708" upper = ".4" velocity = "1"/>
+		<parent link = "front_left_p3"/>
+		<child link = "front_left_p4"/>
+		
+	</joint>
+	
+	<link name = "front_right_p4">
+		<visual>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p4_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "cyan">
+				<color rgba = "0 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//front_right_p4_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
+	</link>
+	
+	<joint name = "front_right_p3p4" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = "-0.06704 -0.00023 -0.01303"/>
+		<limit effort = "1000" lower = "-.4" upper = "1.5708" velocity = "1"/>
+		<parent link = "front_right_p3"/>
+		<child link = "front_right_p4"/>
+		
+	</joint>
+	
+	<link name = "back_left_p4">
+		<visual>
+			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p4_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "cyan">
+				<color rgba = "0 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_left_p4_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
+	</link>
+	
+	<joint name = "back_left_p3p4" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = "0.06704 -0.00023 -0.01303"/>
+		<limit effort = "1000" lower = "-1.5708" upper = ".4" velocity = "1"/>
+		<parent link = "back_left_p3"/>
+		<child link = "back_left_p4"/>
+		
+	</joint>
+	
+	<link name = "back_right_p4">
+		<visual>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p4_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "cyan">
+				<color rgba = "0 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//back_right_p4_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+		</collision>
+		<inertial>
+			<mass value = ".0617"/>
+			<inertia ixx = "0.0007" ixy = "0.0004" ixz = "0.0004" iyy = "0.0009" iyz = "0.0003" izz = "0.0008" />
+		</inertial>
+		<contact>
+			<friction_anchor/>
+			<stiffness value="3000.0"/>
+			<damping value="100.0"/>
+			<spinning_friction value=".3"/>
+			<lateral_friction value="1"/>
+		</contact>
+	</link>
+	
+	<joint name = "back_right_p3p4" type = "revolute">
+		<axis xyz = "0 1 0" />
+		<origin xyz = "-0.06704 -0.00023 -0.01303"/>
+		<limit effort = "1000" lower = "-.4" upper = "1.5708" velocity = "1"/>
+		<parent link = "back_right_p3"/>
+		<child link = "back_right_p4"/>
+		
+	</joint>
+	
+	<link name = "pi">
+		<visual>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//pi_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "cyan">
+				<color rgba = "0 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//pi_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+		</collision>
+	</link>
+	
+	<joint name = "base_top_to_pi" type = "fixed">
+		<origin xyz = "-0.00212 0.02777 0.00318"/>
+		<parent link = "base_plate_top"/>
+		<child link = "pi"/>
+	</joint>
+	
+	<link name = "bus">
+		<visual>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//bus_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "cyan">
+				<color rgba = "0 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//bus_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+		</collision>
+	</link>
+	
+	<joint name = "base_top_to_bus" type = "fixed">
+		<origin xyz = "-0.05 0.03 0.00318"/>
+		<parent link = "base_plate_top"/>
+		<child link = "bus"/>
+	</joint>
+	
+	<link name = "conv">
+		<visual>
+			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//conv_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "cyan">
+				<color rgba = "0 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//conv_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+		</collision>
+	</link>
+	
+	<joint name = "base_top_to_conv" type = "fixed">
+		<origin xyz = "-0.08 0.09 0.00318"/>
+		<parent link = "base_plate_top"/>
+		<child link = "conv"/>
+	</joint>
+	
+	
+	
+	
+	
+	
+	<link name = "face">
+		<visual>
+			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//face_fine.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<material name = "yellow">
+				<color rgba = "1 1 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename = "//cad_files//simulation//stls//face_coarse.STL" scale = ".001 .001 .001"/>
+			</geometry>
+			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+		</collision>
+	</link>
+	
+	<joint name = "base_bottom_to_face" type = "fixed">
+		<origin xyz = "-0.0175 0.011 0.00318"/>
+		<parent link = "base_plate_bottom"/>
+		<child link = "face"/>
+	</joint>
+</robot>
