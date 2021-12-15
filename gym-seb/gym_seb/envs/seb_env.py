@@ -78,12 +78,12 @@ class SebEnv(gym.Env):
   def step(self, action):
     self.episode_number += 1
     self.timestep_num += 1
-    p.stepSimulation()
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
     pos = action*1.5708 #.numpy()
     
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
+    p.stepSimulation()
     
     nep, no = p.getBasePositionAndOrientation(self.boxId)
     jointData = p.getJointStates(self.boxId, jointIndices=self.joints, physicsClientId=self.physicsClient)
