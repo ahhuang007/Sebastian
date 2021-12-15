@@ -80,8 +80,17 @@ class SebEnv(gym.Env):
     self.timestep_num += 1
     op, oo = p.getBasePositionAndOrientation(self.boxId)
     
-    pos = action*1.5708 #.numpy()
-    
+    real_ranges = [[0, 0.548], [-1.5708, 0.9], [-1.5708, 0.4], 
+                   [0, 0.548], [-0.9, 1.5708], [-0.4, 1.5708], 
+                   [0, 0.548], [-1.5708, 0.9], [-1.5708, 0.4], 
+                   [0, 0.548], [-0.9, 1.5708], [-0.4, 1.5708]]
+    #pos = action*1.5708 #.numpy()
+    pos = []
+    for i in range(len(action)):
+        frac = ((action[i] + 1)/2)
+        conv_frac = frac * (real_ranges[i][1] - real_ranges[i][0])
+        pos.append(real_ranges[i][0] + conv_frac)
+        
     p.setJointMotorControlArray(self.boxId, self.joints, controlMode=self.mode, targetPositions=pos)
     p.stepSimulation()
     
