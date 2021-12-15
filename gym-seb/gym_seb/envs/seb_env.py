@@ -94,9 +94,9 @@ class SebEnv(gym.Env):
     orientation = p.getEulerFromQuaternion(no)
     
     forward_reward = (nep[0] - op[0])/(1/240)
-    deviation_reward = 0.05*(np.abs(nep[1]))/(1/240) 
-    pitch_reward = 0.05*np.abs(orientation[0])
-    yaw_reward = 0.05*np.abs(orientation[2])
+    deviation_reward = 0.05*(np.square(nep[1]))/(1/240) 
+    pitch_reward = 0.05*np.square(orientation[0])
+    yaw_reward = 0.05*np.square(orientation[2])
     ctrl_cost = 0.05 * np.square(pos).sum()
     survive_reward = 0.5
     reward = forward_reward - ctrl_cost - deviation_reward + survive_reward - pitch_reward - yaw_reward
