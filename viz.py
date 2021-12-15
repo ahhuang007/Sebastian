@@ -46,7 +46,7 @@ for j in range(10):
         action, _states = model.predict(obs)#, deterministic = True)
         obs, rewards, done, info = env.step(action)
         reward += rewards
-        time.sleep(1/240)
+        #time.sleep(1/240)
         #print(obs)
         #i += 1
     testing_rewards.append(reward)
