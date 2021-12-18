@@ -70,7 +70,7 @@ class SebEnv(gym.Env):
     
        
     self.action_space = spaces.Box(-1, +1, shape = (12,), dtype = 'float32')
-    self.observation_space = spaces.Box(-100000, +100000, shape = (18,), dtype = 'float32')
+    self.observation_space = spaces.Box(-100000, +100000, shape = (15,), dtype = 'float32')
     self.episode_number = 0
     self.episode_timesteps = episode_timesteps
     self.timestep_num = 0
@@ -112,7 +112,7 @@ class SebEnv(gym.Env):
     #Experimental reward function below
     #reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[0]) - 0.01*(no[2]**2 + no[1]**2)
     info = {}
-    total_obs = tuple(observation) + tuple(orientation) + jointPos
+    total_obs = tuple(orientation) + jointPos
     done = False
     if orientation[0] > 0.8 or orientation[0] < -1.5708:
       done = True
@@ -141,7 +141,7 @@ class SebEnv(gym.Env):
     self.timestep_num = 0
     print("resetting environment")
     ori = p.getEulerFromQuaternion(ori)
-    all_data = tuple(position) + tuple(ori) + jointPos
+    all_data = tuple(ori) + jointPos
     return np.array(all_data, dtype = 'float32')
     
   def render(self, mode='human'):
