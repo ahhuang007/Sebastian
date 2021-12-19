@@ -8,7 +8,8 @@ Created on Tue Dec 14 23:01:43 2021
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv("./data/timestep_rewards/ppo_rewards_v13.csv")
+#df = pd.read_csv("./data/timestep_rewards/ppo_rewards_v14.csv")
+df = pd.read_csv("./../../../Downloads/ppo_rewards_v14.csv")
 
 plt.plot(df.index, df['f_reward'])
 plt.title('forward_reward over timestep')
