@@ -28,7 +28,7 @@ check_env(env, warn=True)
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("models/real_model_ppo_v14", env = env)
+model = PPO.load("models/real_model_ppo_v15", env = env)
 env.seed(4)
 model.set_random_seed(4)
 env.action_space.seed(4)
@@ -40,19 +40,23 @@ obs = env.reset()
 
 #performance
 testing_rewards = []
+actions = []
 for j in range(10):
     reward = 0
     while not done:
         action, _states = model.predict(obs)#, deterministic = True)
         obs, rewards, done, info = env.step(action)
+        actions.append([action[2], action[10], action[11]])
         reward += rewards
-        time.sleep(1/240)
+        #time.sleep(1/240)
         #print(obs)
         #i += 1
     testing_rewards.append(reward)
     obs = env.reset()
     done = False
-
+print(np.mean([x[0] for x in actions]))
+print(np.mean([x[1] for x in actions]))
+print(np.mean([x[2] for x in actions]))
 mean_reward = np.mean(testing_rewards)
 std_reward = np.std(testing_rewards)
 print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")

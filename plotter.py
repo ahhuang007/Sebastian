@@ -7,36 +7,28 @@ Created on Tue Dec 14 23:01:43 2021
 #Simple plotting script to see some data
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
+from scipy.ndimage.filters import uniform_filter1d
 
-#df = pd.read_csv("./data/timestep_rewards/ppo_rewards_v14.csv")
-df = pd.read_csv("./../../../Downloads/ppo_rewards_v14.csv")
+#Loading data, set N for moving average
+df = pd.read_csv("./data/timestep_rewards/ppo_rewards_v15.csv")
+#df = pd.read_csv("./../../../Downloads/ppo_rewards_v14.csv")
+N = 10000
 
-plt.plot(df.index, df['f_reward'])
-plt.title('forward_reward over timestep')
-plt.xlabel('timestep')
-plt.ylabel('forward_reward')
-plt.show()
-
-plt.plot(df.index, df['d_reward'])
-plt.title('deviation_reward over timestep')
-plt.xlabel('timestep')
-plt.ylabel('deviation_reward')
-plt.show()
-
-plt.plot(df.index, df['p_reward'])
-plt.title('pitch_reward over timestep')
-plt.xlabel('timestep')
-plt.ylabel('pitch_reward')
-plt.show()
-
-plt.plot(df.index, df['y_reward'])
-plt.title('yaw_reward over timestep')
-plt.xlabel('timestep')
-plt.ylabel('yaw_reward')
-plt.show()
-
-plt.plot(df.index, df['c_reward'])
-plt.title('ctrl_cost over timestep')
-plt.xlabel('timestep')
-plt.ylabel('ctrl_cost')
-plt.show()
+cols = ['f_reward', 'd_reward', 'p_reward', 'y_reward', 'c_reward']
+for col in cols:
+    #Removing outliers
+    avg = np.mean(df[col])
+    st = np.std(df[col])
+    tempdf = df[df[col] < avg + 4*st]
+    tempdf = tempdf[tempdf[col] > avg - 4*st]
+    tempdf.reset_index(drop = True)
+    #Plotting
+    plt.plot(tempdf.index, tempdf[col])
+    plt.title(col + ' over timestep')
+    plt.xlabel('timestep')
+    plt.ylabel(col)
+    #Moving average
+    y = uniform_filter1d(tempdf[col], size=N)
+    plt.plot(tempdf.index, y)
+    plt.show()

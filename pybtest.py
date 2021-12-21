@@ -16,11 +16,11 @@ physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
 
 p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
 
-p.setGravity(0,0,-10)
+p.setGravity(0,0,0)
 p.resetDebugVisualizerCamera(cameraDistance = 1.5, cameraYaw=0, cameraPitch=0, cameraTargetPosition=[0,0,0])
 planeId = p.loadURDF("plane.urdf")
 
-cubeStartPos = [0,0,.1]
+cubeStartPos = [0,0,0.5]
 
 cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
 
