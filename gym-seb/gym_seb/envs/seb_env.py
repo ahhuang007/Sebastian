@@ -117,12 +117,14 @@ class SebEnv(gym.Env):
     if orientation[0] > 0.8 or orientation[0] < -1.5708:
       done = True
       print("robot has flipped over at timestep " + str(self.episode_number))
+      print(nep)
     elif self.timestep_num > 10000:
       done = True
       print("maximum timestep reached for episode")
+      print(nep)
     if self.episode_number % 10000 == 0:
         print("at episode " + str(self.episode_number))
-        print(reward)
+        print(nep)
     info['ep'] = self.timestep_num
     info['f_reward'] = forward_reward
     info['d_reward'] = deviation_reward
