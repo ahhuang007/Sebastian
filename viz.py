@@ -20,7 +20,7 @@ import gym_seb
 from stable_baselines3.common.evaluation import evaluate_policy
 import random
 
-env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = False)
+env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = True)
 
 
 mode = p.POSITION_CONTROL
@@ -45,7 +45,7 @@ for j in range(1):
         obs, rewards, done, info = env.step(action)
         actions.append([action[2], action[10], action[11]])
         reward += rewards
-        #time.sleep(1/240)
+        time.sleep(1/240)
         #print(obs)
         #i += 1
     testing_rewards.append(reward)

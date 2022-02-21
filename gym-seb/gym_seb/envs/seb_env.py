@@ -103,12 +103,13 @@ class SebEnv(gym.Env):
     orientation = p.getEulerFromQuaternion(no)
     
     forward_reward = (nep[0] - op[0])/(1/240)
-    deviation_reward = 0.01*(np.square(nep[1])) 
+    roll_reward = 0.075*np.square(orientation[1])
+    deviation_reward = 0.0125*(np.square(nep[1])) 
     pitch_reward = 0.05*np.square(orientation[0])
     yaw_reward = 0.075*np.square(orientation[2])
     ctrl_cost = 0.05 * np.square(pos).sum()
     survive_reward = 0.5
-    reward = forward_reward - ctrl_cost - deviation_reward + survive_reward - pitch_reward - yaw_reward
+    reward = forward_reward - ctrl_cost - deviation_reward + survive_reward - roll_reward - pitch_reward - yaw_reward
     #Experimental reward function below
     #reward = -np.abs(forward_reward - 0.021) - 0.001*np.abs(no[0]) - 0.01*(no[2]**2 + no[1]**2)
     info = {}
@@ -131,6 +132,7 @@ class SebEnv(gym.Env):
     info['p_reward'] = pitch_reward
     info['y_reward'] = yaw_reward
     info['c_reward'] = ctrl_cost
+    info['r_reward'] = roll_reward
       
     return np.array(total_obs, dtype = 'float32'), reward, done, info
 
