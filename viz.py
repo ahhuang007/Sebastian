@@ -20,12 +20,12 @@ import gym_seb
 from stable_baselines3.common.evaluation import evaluate_policy
 import random
 
-env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = True)
+env = gym.make('seb-v0', episode_timesteps = 10000, use_gui = False)
 
 
 mode = p.POSITION_CONTROL
 
-model = PPO.load("models/real_model_ppo_v19", env = env)
+model = PPO.load("models/real_model_ppo_v20", env = env)
 env.seed(4)
 model.set_random_seed(4)
 env.action_space.seed(4)

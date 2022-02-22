@@ -11,7 +11,7 @@ import numpy as np
 from scipy.ndimage.filters import uniform_filter1d
 
 #Loading data, set N for moving average
-df = pd.read_csv("./data/timestep_rewards/ppo_rewards_v19.csv")
+df = pd.read_csv("./data/timestep_rewards/ppo_rewards_v20.csv")
 #df = pd.read_csv("./../../../Downloads/ppo_rewards_v14.csv")
 N = 10000
 
