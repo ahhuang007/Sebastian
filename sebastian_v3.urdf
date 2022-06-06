@@ -193,7 +193,7 @@
 	
 	<link name="front_left_p2">
 		<visual>
-			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "0 0 2.804" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_left_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -205,7 +205,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_left_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "0 0 2.804" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0528"/>
@@ -223,7 +223,7 @@
 	
 	<link name="front_right_p2">
 		<visual>
-			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+			<origin rpy = "0 0 0.3374" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_right_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -235,7 +235,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_right_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+			<origin rpy = "0 0 0.3374" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0528"/>
@@ -253,7 +253,7 @@
 	
 	<link name="back_left_p2">
 		<visual>
-			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "0 0 3.61283" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_left_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -265,7 +265,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_left_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "0 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "0 0 3.47896" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0528"/>
@@ -283,7 +283,7 @@
 	
 	<link name="back_right_p2">
 		<visual>
-			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+			<origin rpy = "0 0 -0.471239" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_right_p2_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -295,7 +295,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_right_p2_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "0 0 0" xyz = "0 0 0"/>
+			<origin rpy = "0 0 -0.471239" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0528"/>
@@ -313,7 +313,7 @@
 	
 	<link name = "front_left_p3">
 		<visual>
-			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 1.5708 2.804" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_left_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -325,7 +325,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_left_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 1.5708 2.804" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -335,7 +335,7 @@
 	
 	<joint name = "front_left_p2p3" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = ".06069 0.018 -0.00696"/>
+		<origin xyz = "0.0632262127 -0.0034342938 -0.0069580693"/>
 		<limit effort = "1000" lower = "-1.5708" upper = ".9" velocity = "1"/>
 		<parent link = "front_left_p2"/>
 		<child link = "front_left_p3"/>
@@ -344,7 +344,7 @@
 	
 	<link name = "front_right_p3">
 		<visual>
-			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 1.5708 0.3374" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_right_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -356,7 +356,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_right_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 1.5708 0.3374" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -366,7 +366,7 @@
 	
 	<joint name = "front_right_p2p3" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = "-.06069 -0.018 -0.00696"/>
+		<origin xyz = "-0.0515981457 -0.0367139955 -0.0069580693"/>
 		<limit effort = "1000" lower = "-.9" upper = "1.5708" velocity = "1"/>
 		<parent link = "front_right_p2"/>
 		<child link = "front_right_p3"/>
@@ -375,7 +375,7 @@
 	
 	<link name = "back_left_p3">
 		<visual>
-			<origin rpy = "1.5708 1.5708 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 1.5708 3.61283" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_left_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -387,7 +387,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_left_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 -1.5708 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 -1.5708 3.61283" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -397,7 +397,7 @@
 	
 	<joint name = "back_left_p2p3" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = ".06069 0.018 -0.00696"/>
+		<origin xyz = "0.04590633696 0.0435860972 -0.00696"/>
 		<limit effort = "1000" lower = "-1.5708" upper = ".9" velocity = "1"/>
 		<parent link = "back_left_p2"/>
 		<child link = "back_left_p3"/>
@@ -405,7 +405,7 @@
 	
 	<link name = "back_right_p3">
 		<visual>
-			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 1.5708 -0.471239" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_right_p3_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -417,7 +417,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_right_p3_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 1.5708 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 1.5708 -0.471239" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -427,7 +427,7 @@
 	
 	<joint name = "back_right_p2p3" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = "-.06069 -0.018 -0.00696"/>
+		<origin xyz = "-0.0622470528 0.0115074672 -0.00696"/>
 		<limit effort = "1000" lower = "-.9" upper = "1.5708" velocity = "1"/>
 		<parent link = "back_right_p2"/>
 		<child link = "back_right_p3"/>
@@ -435,7 +435,7 @@
 	
 	<link name = "front_left_p4">
 		<visual>
-			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 2.804" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_left_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -447,7 +447,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_left_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 2.804" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -464,7 +464,7 @@
 	
 	<joint name = "front_left_p3p4" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = "0.06704 -0.00023 -0.01303"/>
+		<origin xyz = "0.0632567046 -0.0221984307 -0.0130277886"/><!--0.06704 -0.00023 -0.01303-->
 		<limit effort = "1000" lower = "-1.5708" upper = ".5" velocity = "1"/>
 		<parent link = "front_left_p3"/>
 		<child link = "front_left_p4"/>
@@ -473,7 +473,7 @@
 	
 	<link name = "front_right_p4">
 		<visual>
-			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 0.3374" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_right_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -485,7 +485,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//front_right_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 0.3374" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -502,7 +502,7 @@
 	
 	<joint name = "front_right_p3p4" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = "-0.06704 -0.00023 -0.01303"/>
+		<origin xyz = "-0.0632660647 -0.0221717401 -0.01303"/><!-- -0.06704 -0.00023 -0.01303-->
 		<limit effort = "1000" lower = "-.5" upper = "1.5708" velocity = "1"/>
 		<parent link = "front_right_p3"/>
 		<child link = "front_right_p4"/>
@@ -511,7 +511,7 @@
 	
 	<link name = "back_left_p4">
 		<visual>
-			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 3.61283" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_left_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -523,7 +523,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_left_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 0 3.1415" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 3.61283" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -540,7 +540,7 @@
 	
 	<joint name = "back_left_p3p4" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = "0.06704 -0.00023 -0.01303"/>
+		<origin xyz = "0.0597405058 0.0304179711 -0.01303"/>
 		<limit effort = "1000" lower = "-1.5708" upper = ".5" velocity = "1"/>
 		<parent link = "back_left_p3"/>
 		<child link = "back_left_p4"/>
@@ -549,7 +549,7 @@
 	
 	<link name = "back_right_p4">
 		<visual>
-			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 -0.471239" xyz = "0 0 0"/>
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_right_p4_fine.STL" scale = ".001 .001 .001"/>
 			</geometry>
@@ -561,7 +561,7 @@
 			<geometry>
 				<mesh filename = "//cad_files//simulation//stls//back_right_p4_coarse.STL" scale = ".001 .001 .001"/>
 			</geometry>
-			<origin rpy = "1.5708 0 0" xyz = "0 0 0"/>
+			<origin rpy = "1.5708 0 -0.471239" xyz = "0 0 0"/>
 		</collision>
 		<inertial>
 			<mass value = ".0617"/>
@@ -578,7 +578,7 @@
 	
 	<joint name = "back_right_p3p4" type = "revolute">
 		<axis xyz = "0 1 0" />
-		<origin xyz = "-0.06704 -0.00023 -0.01303"/>
+		<origin xyz = "-0.0597276669 0.0304431735 -0.01303"/>
 		<limit effort = "1000" lower = "-.5" upper = "1.5708" velocity = "1"/>
 		<parent link = "back_right_p3"/>
 		<child link = "back_right_p4"/>
