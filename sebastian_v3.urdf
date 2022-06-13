@@ -216,7 +216,7 @@
 	<joint name = "front_left_p1p2" type = "revolute">
 		<axis xyz = "0 0 1" />
 		<origin xyz = ".030675 -.000176 .0365"/>
-		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<limit effort="1000.0" lower="-1" upper="0.75" velocity="1"/>
 		<parent link = "front_left_p1"/>
 		<child link = "front_left_p2"/>
 	</joint>
@@ -246,7 +246,7 @@
 	<joint name = "front_right_p1p2" type = "revolute">
 		<axis xyz = "0 0 1" />
 		<origin xyz = "-.023771 -.019389 .0365"/>
-		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<limit effort="1000.0" lower="-0.75" upper="1" velocity="1"/>
 		<parent link = "front_right_p1"/>
 		<child link = "front_right_p2"/>
 	</joint>
@@ -276,7 +276,7 @@
 	<joint name = "back_left_p1p2" type = "revolute">
 		<axis xyz = "0 0 1" />
 		<origin xyz = ".021300 .022075 .0365"/>
-		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<limit effort="1000.0" lower="-1" upper="0.75" velocity="1"/>
 		<parent link = "back_left_p1"/>
 		<child link = "back_left_p2"/>
 	</joint>
@@ -306,7 +306,7 @@
 	<joint name = "back_right_p1p2" type = "revolute">
 		<axis xyz = "0 0 1" />
 		<origin xyz = "-.030379 .0042546 .0365"/>
-		<limit effort="1000.0" lower="0.0" upper="0.548" velocity="1"/>
+		<limit effort="1000.0" lower="-0.75" upper="1" velocity="1"/>
 		<parent link = "back_right_p1"/>
 		<child link = "back_right_p2"/>
 	</joint>
