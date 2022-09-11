@@ -104,7 +104,7 @@ class SebEnv(gym.Env):
     
     forward_reward = (nep[0] - op[0])/(1/240)
     roll_reward = 0.075*np.square(orientation[1])
-    deviation_reward = 0.01*(np.square(nep[1])) 
+    deviation_reward = 0.04*(np.square(nep[1])) 
     pitch_reward = 0.05*np.square(orientation[0])
     yaw_reward = 0.075*np.square(orientation[2])
     ctrl_cost = 0.05 * np.square(pos).sum()
